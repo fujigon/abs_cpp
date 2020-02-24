@@ -9,7 +9,7 @@ int main()
     cin >> str;
 
     int count = 0;
-    for (int i = 0; i < str.size(); i++)
+    for (uint i = 0; i < str.size(); i++)
     {
         if (str[i] == '1')
         {
