@@ -1,19 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+void solve(std::istream& ist, std::ostream& ost) {
     int a, b, c;
     string s;
 
     // handle inputs
-    cin >> a;
+    ist >> a;
 
-    cin >> b >> c;
+    ist >> b >> c;
 
-    cin >> s;
+    ist >> s;
 
     int sum = a + b + c;
-    cout << sum << " " << s << endl;
+    ost << sum << " " << s << std::endl;
+}
+
+#ifndef DEBUG
+int main()
+{
+    solve(std::cin, std::cout);
     return 0;
 }
+#endif

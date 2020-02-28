@@ -8,12 +8,12 @@ bool ends_with(const std::string &s, const std::string &suffix)
         return false;
     return std::equal(std::rbegin(suffix), std::rend(suffix), std::rbegin(s));
 }
-int main()
-{
+
+void solve(std::istream& ist, std::ostream& ost) {
     string str;
 
     // handle inputs
-    cin >> str;
+    ist >> str;
 
     while (true)
     {
@@ -43,10 +43,16 @@ int main()
         }
     }
     if (str.size() == 0) {
-        cout << "YES" << endl;
+        ost << "YES" << endl;
     } else {
-        cout << "NO" << endl;
+        ost << "NO" << endl;
     }
+}
 
+#ifndef DEBUG
+int main()
+{
+    solve(std::cin, std::cout);
     return 0;
 }
+#endif
