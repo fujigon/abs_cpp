@@ -1,4 +1,4 @@
-#include "others/abs/practiceA.cpp"
+#include "abc/abc049/abc049c.cpp"
 #include "gtest/gtest.h"
 
 int main(int argc, char **argv) {
@@ -8,8 +8,8 @@ int main(int argc, char **argv) {
 
 TEST(Test1, case1) {
 
-  std::string in = "1 2 3 6"s;
-  std::string out = "6 6"s;
+  std::string in = "dreamer"s;
+  std::string out = "YES"s;
 
   std::ostringstream ost;
   std::istringstream ist(in + "\n");

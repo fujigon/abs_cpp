@@ -11,5 +11,5 @@ foreach(file ${files})
 
     set(BINARY ${filename}_lib)
     message("${BINARY}")
-    add_library(${BINARY}_lib STATIC ${SOURCES})
+    add_library(${BINARY} STATIC ${SOURCES})
 endforeach(file ${files})

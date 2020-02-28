@@ -8,5 +8,5 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -s")
 include_directories(src)
 
 add_subdirectory(src)
-add_subdirectory(tst)
 add_subdirectory(lib)
+add_subdirectory(tst)
