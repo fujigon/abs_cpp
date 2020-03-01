@@ -2,7 +2,7 @@ file(GLOB_RECURSE files "*.cpp")
 
 foreach(file ${files})
     get_filename_component(filename "${file}" NAME_WE)
-    string(REPLACE "-test" "" filename ${filename})
+    string(REPLACE "_tst" "" filename ${filename})
 
     set(SOURCES ${file})
 

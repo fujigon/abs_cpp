@@ -19,4 +19,3 @@ TEST(Test1, case1) {
 
   EXPECT_EQ(ostr, out + "\n");
 }
-
