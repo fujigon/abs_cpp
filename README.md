@@ -53,7 +53,8 @@ AtCoder Begineers Selection (C++ version)
                 "Debug",
                 "--target",
                 "all",
-                "--"
+                "--",
+                "-j"
             ],
             "problemMatcher": [
                 "$gcc"
