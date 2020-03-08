@@ -15,10 +15,6 @@ include_directories(src)
 add_subdirectory(lib)
 
 ### Source
-#add_subdirectory(src)
-
-#add_subdirectory(tst)
-
 file(GLOB_RECURSE files "src/${pattern}")
 foreach(file ${files})
     get_filename_component(filename "${file}" NAME_WE)
@@ -28,13 +24,14 @@ foreach(file ${files})
     set(BINARY ${filename}_lib)
     message("${BINARY}")
     add_library(${BINARY} STATIC ${SOURCES})
+    target_compile_definitions(${BINARY} PUBLIC WOMAIN)
 
     set(BINARY ${filename})
     message("${BINARY}")
     add_executable(${BINARY} ${SOURCES})
-    target_compile_definitions(${BINARY} PUBLIC WIMAIN)
 endforeach(file ${files})
 
+### Test
 file(GLOB_RECURSE files "tst/${pattern}")
 foreach(file ${files})
     get_filename_component(filename "${file}" NAME_WE)
