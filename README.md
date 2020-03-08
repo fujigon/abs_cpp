@@ -12,17 +12,75 @@ AtCoder Begineers Selection (C++ version)
   - Test Explorer UI https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer
   - Catch2, Google Test and DOCtest Explorer https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter
 
+- place following `tasks.json` to `.vscode` directory
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-lstdc++fs"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "cmake build",
+            "type" : "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "command": "/usr/bin/cmake",
+            "args": [
+                "--build",
+                "${workspaceRoot}/build",
+                "--config",
+                "Debug",
+                "--target",
+                "all",
+                "--"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            }
+        }
+    ]
+}
+```
+
 - place following `launch.json` to `.vscode` directory
 
 ```json
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "cmake build and debug active file",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}",
+            "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -35,7 +93,9 @@ AtCoder Begineers Selection (C++ version)
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "cmake build",
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
@@ -56,7 +116,8 @@ AtCoder Begineers Selection (C++ version)
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
         }
     ],
     "version": 4
